@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#073b4c">
+<title>Order Smarter, Live Better | Smart Digital Services</title>
+<style>
+:root{--navy:#073b4c;--blue:#0878d1;--teal:#0e8790;--ink:#1e2932;--muted:#64727c;--paper:#f5f8fa;--line:#e3e9ed;--white:#fff;--shadow:0 12px 34px rgba(20,48,62,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
+header{background:linear-gradient(120deg,#062f40,#075b70);color:white;padding:18px 6%;position:sticky;top:0;z-index:10;box-shadow:0 4px 18px #082f4030}
+.nav{max-width:1120px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:800;letter-spacing:.3px;font-size:17px}.brand span{color:#78d7d2}.navlinks{display:flex;gap:8px;flex-wrap:wrap}.navlinks a{color:#e9f6f7;text-decoration:none;padding:8px 12px;border-radius:22px;font-size:13px}.navlinks a:hover,.navlinks a.active{background:#ffffff20}
+main{max-width:1120px;margin:34px auto;padding:0 22px}.hero{background:white;border-radius:22px;padding:clamp(26px,5vw,54px);box-shadow:var(--shadow);position:relative;overflow:hidden}.eyebrow{color:var(--teal);font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}.hero h1{font-size:clamp(30px,5vw,48px);line-height:1.1;color:var(--navy);margin:10px 0 16px;max-width:700px}.hero p{max-width:760px;color:#53616a;margin:0}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.btn{border:0;border-radius:9px;padding:12px 18px;background:var(--navy);color:white;text-decoration:none;font-weight:700;cursor:pointer;font-size:14px;display:inline-block}.btn.secondary{background:#e8f3f4;color:var(--navy)}.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.section{margin-top:26px;background:white;border-radius:18px;padding:clamp(22px,4vw,34px);box-shadow:var(--shadow)}.section h2{color:var(--navy);font-size:23px;margin:0 0 8px}.section-intro{color:var(--muted);margin-top:0}.benefits{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:13px;margin-top:20px}.benefit{border:1px solid var(--line);border-radius:13px;padding:17px}.benefit b{display:block;color:var(--navy);margin-bottom:5px}.benefit p{font-size:14px;color:var(--muted);margin:0}
+.methods{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:15px;margin-top:20px}.method{background:#f7fafb;border:1px solid var(--line);padding:20px;border-radius:14px}.method .num{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#dff2f1;color:var(--navy);font-weight:800;margin-bottom:10px}.method h3{margin:0 0 6px;color:var(--navy);font-size:17px}.method p{margin:0;color:var(--muted);font-size:14px}
+.payment-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:20px}.pay{border:1px solid var(--line);border-radius:14px;padding:17px;text-align:center;background:white;transition:.2s}.pay:hover{transform:translateY(-3px);box-shadow:var(--shadow)}.logo{height:68px;display:grid;place-items:center;margin-bottom:8px}.pay strong{display:block;color:var(--navy)}.pay small{color:var(--muted)}
+.pay svg{max-width:145px;width:100%;height:60px}.note{font-size:13px;color:var(--muted);font-style:italic;margin-top:16px}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.search{flex:1;min-width:200px;padding:12px 14px;border:1px solid #d5dfe4;border-radius:9px;font:inherit}.filter{padding:11px 14px;border:1px solid #d5dfe4;border-radius:9px;background:white;color:var(--ink);font:inherit}
+.category{border:1px solid var(--line);border-radius:13px;margin:13px 0;overflow:hidden}.category-head{width:100%;display:flex;justify-content:space-between;align-items:center;gap:15px;padding:17px 18px;background:#f8fbfc;border:0;text-align:left;font:700 16px Arial;color:var(--navy);cursor:pointer}.category-head:hover{background:#edf6f7}.chevron{font-size:20px;transition:.2s}.category.open .chevron{transform:rotate(180deg)}.category-content{display:none;padding:4px 18px 18px}.category.open .category-content{display:block}.problem{padding:14px 0;border-bottom:1px solid var(--line)}.problem:last-child{border-bottom:0}.problem h4{margin:0 0 7px;font-size:15px;color:#263943}.problem p{margin:0 0 7px;color:var(--muted);font-size:14px}.problem ul{margin:7px 0 0;padding-left:22px;color:#46555e;font-size:14px}.problem li{padding:2px 0}.problem[hidden]{display:none}
+.feedback{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}.feedback input,.feedback select,.feedback textarea{width:100%;padding:12px;border:1px solid #d5dfe4;border-radius:9px;font:inherit;background:white}.feedback textarea{grid-column:1/-1;min-height:120px;resize:vertical}.feedback button{justify-self:start}.status{display:none;margin-top:14px;padding:12px 15px;border-radius:9px;background:#e7f6ef;color:#17613e;font-size:14px}.status.show{display:block}
+footer{text-align:center;color:#7a8991;font-size:13px;padding:30px 18px}
+@media(max-width:650px){header{padding:14px 5%}.nav{align-items:flex-start;flex-direction:column;gap:8px}.navlinks{width:100%}.navlinks a{padding:7px 9px}.feedback{grid-template-columns:1fr}.feedback textarea{grid-column:auto}main{margin:20px auto;padding:0 14px}.hero,.section{border-radius:15px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <div class="brand">SMART <span>DIGITAL</span> SERVICES</div>
+    <nav class="navlinks" aria-label="Main navigation">
+      <a href="#home" class="active">Home</a>
+      <a href="#benefits">Why go digital?</a>
+      <a href="#payments">Payments</a>
+      <a href="#solutions">Problems & solutions</a>
+      <a href="#feedback">Feedback</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="hero" id="home">
+    <div class="eyebrow">A simpler way to order</div>
+    <h1>ORDER SMARTER,<br>LIVE BETTER!</h1>
+    <h3>Discover the Convenience of Smart Digital Services</h3>
+    <p>Skip the traditional ordering process and enjoy a convenient, simple, and modern way of ordering through self-service kiosks and mobile ordering applications. Experience greater flexibility, easier access to restaurant menus, and more control over your food selections.</p>
+    <div class="hero-actions">
+      <a class="btn" href="#benefits">Discover digital ordering</a>
+      <a class="btn secondary" href="#solutions">Explore problems & solutions</a>
+    </div>
+  </section>
+
+  <section class="section" id="benefits">
+    <h2>Why go digital?</h2>
+    <p class="section-intro">Digital ordering gives customers more ways to browse, customize, and place their orders.</p>
+    <div class="benefits">
+      <div class="benefit"><b>Convenience</b><p>Enjoy an alternative to traditional counter ordering.</p></div>
+      <div class="benefit"><b>Time Efficiency</b><p>Make the ordering process easier and more efficient.</p></div>
+      <div class="benefit"><b>Flexibility</b><p>Choose how to access available digital ordering services.</p></div>
+      <div class="benefit"><b>Personalization</b><p>Select and customize meals according to your preferences.</p></div>
+      <div class="benefit"><b>Accessibility</b><p>Explore restaurant menus, food selections, and available promotions through digital platforms.</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="ways">
+    <h2>Two ways to order smarter</h2>
+    <div class="methods">
+      <article class="method"><div class="num">1</div><h3>Self-Service Kiosks</h3><p>Enjoy interactive touchscreen ordering, digital menus, meal customization, and available electronic payment options. These kiosks provide an alternative way to place orders without relying entirely on traditional counter service.</p></article>
+      <article class="method"><div class="num">2</div><h3>Mobile Ordering Applications</h3><p>Access restaurant menus through your smartphone, explore available promotions, customize food selections, and enjoy the convenience of mobile-based ordering.</p></article>
+    </div>
+  </section>
+
+  <section class="section" id="payments">
+    <h2>Payment options</h2>
+    <p class="section-intro">Enjoy convenient payment options depending on the participating restaurant.</p>
+    <div class="payment-grid">
+      <div class="pay"><div class="logo">
+        <svg viewBox="0 0 150 65" role="img" aria-label="GCash logo"><rect x="1" y="1" width="63" height="63" rx="8" fill="#0878e8"/><circle cx="32" cy="32" r="20" fill="none" stroke="#fff" stroke-width="5"/><path d="M40 25H31a8 8 0 1 0 7 12h-8" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M73 21q12 11 0 22M82 15q18 17 0 34" fill="none" stroke="#0878e8" stroke-width="5" stroke-linecap="round"/><text x="93" y="39" font-size="17" font-weight="bold" fill="#0878e8">GCash</text></svg>
+      </div><strong>GCash</strong><small>Mobile wallet</small></div>
+      <div class="pay"><div class="logo">
+        <svg viewBox="0 0 150 65" role="img" aria-label="Maya logo"><rect x="1" y="1" width="148" height="63" rx="8" fill="#111"/><text x="75" y="43" text-anchor="middle" font-size="34" font-weight="bold" letter-spacing="-2" fill="#36d99a">maya</text></svg>
+      </div><strong>Maya</strong><small>Digital wallet</small></div>
+      <div class="pay"><div class="logo">
+        <svg viewBox="0 0 150 65" role="img" aria-label="Debit and credit cards"><rect x="14" y="12" width="92" height="53" rx="7" fill="#19324b" transform="rotate(-8 14 12)"/><rect x="24" y="21" width="92" height="53" rx="7" fill="#f1f4f6" stroke="#9baab3" transform="rotate(7 24 21)"/><rect x="35" y="31" width="92" height="53" rx="7" fill="#fff" stroke="#9baab3" transform="rotate(-2 35 31)"/><rect x="45" y="43" width="16" height="12" rx="2" fill="#d6ad4b"/><text x="84" y="56" font-size="13" font-weight="bold" fill="#1c4f8a">VISA</text><text x="84" y="70" font-size="9" fill="#cf3434">Mastercard</text></svg>
+      </div><strong>Debit & Credit Cards</strong><small>Card payments</small></div>
+      <div class="pay"><div class="logo">
+        <svg viewBox="0 0 150 65" role="img" aria-label="QR Ph logo"><rect x="8" y="9" width="44" height="44" rx="5" fill="#fff" stroke="#e0e6eb"/><path d="M15 16h13v13H15zM32 16h13v13H32zM15 33h13v13H15z" fill="#164a7b"/><path d="M19 20h5v5h-5zM36 20h5v5h-5zM19 37h5v5h-5zM33 34h4v4h-4zM41 40h4v5h-4z" fill="#fff"/><text x="59" y="39" font-size="26" font-weight="bold" fill="#164a7b">QR</text><text x="105" y="39" font-size="26" font-weight="bold" fill="#d12b3b">Ph</text></svg>
+      </div><strong>QR Ph</strong><small>QR code payments</small></div>
+    </div>
+    <p class="note">Note: Payment methods may vary depending on the restaurant and its available payment facilities.</p>
+  </section>
+
+  <section class="section" id="solutions">
+    <h2>Digital ordering: Problems & solutions</h2>
+    <p class="section-intro">Encountering difficulties when using self-service kiosks or mobile ordering applications? Find practical solutions to common digital ordering problems below.</p>
+    <div class="tools">
+      <input class="search" id="searchBox" type="search" placeholder="Search a problem (e.g. payment, lagging, order)..." aria-label="Search problems">
+      <select class="filter" id="categoryFilter" aria-label="Filter by category">
+        <option value="all">All categories</option>
+        <option value="payment">Payment & transaction</option>
+        <option value="system">System performance</option>
+        <option value="accuracy">Order accuracy</option>
+        <option value="status">Order status & updates</option>
+        <option value="mobile">Mobile application</option>
+      </select>
+    </div>
+    <div id="problemList">
+      <div class="category open" data-category="payment">
+        <button class="category-head" aria-expanded="true">1. Payment and transaction problems <span class="chevron">⌄</span></button>
+        <div class="category-content">
+          <article class="problem"><h4>Payment was declined.</h4><p>What to do:</p><ul><li>Check your available balance.</li><li>Verify that your payment details are correct.</li><li>Try another payment method accepted by the restaurant if the transaction remains unsuccessful.</li></ul></article>
+          <article class="problem"><h4>QR payment is not scanning.</h4><p>What to do:</p><ul><li>Adjust your phone's screen brightness.</li><li>Make sure the QR code is clearly visible.</li><li>Position your phone properly in front of the scanner.</li><li>If scanning still fails, ask restaurant staff for assistance.</li></ul></article>
+          <article class="problem"><h4>Card payment is unsuccessful.</h4><p>What to do:</p><ul><li>Check whether your card is valid and has not expired.</li><li>Verify that sufficient funds are available.</li><li>Ask restaurant staff to check the payment terminal if the problem continues.</li></ul></article>
+          <article class="problem"><h4>Payment is still pending.</h4><p>What to do:</p><ul><li>Check the transaction status in your payment application.</li><li>Keep your transaction reference number.</li><li>Avoid repeating the payment until the previous transaction is confirmed.</li></ul></article>
+          <article class="problem"><h4>The payment was deducted, but the order was not confirmed.</h4><p>What to do:</p><ul><li>Check your payment application or bank account to confirm whether the amount was deducted.</li><li>Save a screenshot of the transaction as proof of payment.</li><li>Inform the restaurant staff and provide your transaction reference number.</li><li>Avoid making another payment until the issue is resolved.</li></ul></article>
+        </div>
+      </div>
+      <div class="category" data-category="system">
+        <button class="category-head" aria-expanded="false">2. System performance problems <span class="chevron">⌄</span></button>
+        <div class="category-content">
+          <article class="problem"><h4>Kiosk screen is lagging.</h4><p>What to do:</p><ul><li>Wait for the current selection to respond before tapping again.</li><li>Avoid repeatedly pressing the same button.</li><li>Ask restaurant staff for assistance if the screen remains slow.</li></ul></article>
+          <article class="problem"><h4>Touchscreen is not responding.</h4><p>What to do:</p><ul><li>Avoid repeatedly tapping the screen.</li><li>Wait briefly for the system to respond.</li><li>Notify restaurant staff if the touchscreen remains unresponsive.</li></ul></article>
+          <article class="problem"><h4>Mobile application is running slowly.</h4><p>What to do:</p><ul><li>Check your internet connection.</li><li>Close unnecessary applications.</li><li>Reopen the ordering application and check whether it is working properly.</li></ul></article>
+          <article class="problem"><h4>Application suddenly crashes.</h4><p>What to do:</p><ul><li>Reopen the application.</li><li>Check your order history to see whether your order was submitted.</li><li>If the application continues to crash, check for available updates.</li></ul></article>
+          <article class="problem"><h4>Menu is not loading.</h4><p>What to do:</p><ul><li>Check your internet connection if using a mobile application.</li><li>Refresh the menu page.</li><li>For kiosk problems, ask restaurant staff for assistance.</li></ul></article>
+        </div>
+      </div>
+      <div class="category" data-category="accuracy">
+        <button class="category-head" aria-expanded="false">3. Order accuracy problems <span class="chevron">⌄</span></button>
+        <div class="category-content">
+          <article class="problem"><h4>Wrong food item is selected.</h4><p>What to do:</p><ul><li>Return to the menu.</li><li>Select the correct food item.</li><li>Review your order summary before submitting.</li></ul></article>
+          <article class="problem"><h4>Ordered item becomes unavailable.</h4><p>What to do:</p><ul><li>Check whether another available option is offered.</li><li>Ask restaurant staff about possible alternatives before proceeding.</li></ul></article>
+          <article class="problem"><h4>Duplicate items appear in the cart.</h4><p>What to do:</p><ul><li>Review the items in your cart.</li><li>Remove the extra item before confirming your purchase.</li></ul></article>
+          <article class="problem"><h4>Received food does not match the confirmed order.</h4><p>What to do:</p><ul><li>Check your receipt or order confirmation.</li><li>Present it to restaurant staff.</li><li>Identify the incorrect or missing food item and request assistance.</li></ul></article>
+          <article class="problem"><h4>Wrong meal size is displayed.</h4><p>What to do:</p><ul><li>Review the selected meal size.</li><li>Return to the customization options if necessary.</li><li>Correct the selection before submitting the order.</li></ul></article>
+        </div>
+      </div>
+      <div class="category" data-category="status">
+        <button class="category-head" aria-expanded="false">4. Order status and update problems <span class="chevron">⌄</span></button>
+        <div class="category-content">
+          <article class="problem"><h4>No order confirmation appears.</h4><p>What to do:</p><ul><li>Check your order history or receipt, if available.</li><li>Check your payment transaction if you have already paid.</li><li>Ask restaurant staff to verify whether your order was received before placing another order.</li></ul></article>
+          <article class="problem"><h4>Order is taking longer than expected.</h4><p>What to do:</p><ul><li>Keep your order number.</li><li>Present it to restaurant staff.</li><li>Ask for an update on your order's preparation status.</li></ul></article>
+          <article class="problem"><h4>No order notification is received.</h4><p>What to do:</p><ul><li>Open the mobile application and check your order status directly, if available.</li><li>Check whether notifications are enabled in your phone settings.</li></ul></article>
+          <article class="problem"><h4>Order is marked completed but has not been received.</h4><p>What to do:</p><ul><li>Check your order number.</li><li>Present your receipt or order confirmation to restaurant staff.</li><li>Ask them to verify the order before leaving.</li></ul></article>
+          <article class="problem"><h4>Incorrect order status is displayed.</h4><p>What to do:</p><ul><li>Check your latest order confirmation.</li><li>Ask restaurant staff to verify the actual status of your order.</li></ul></article>
+        </div>
+      </div>
+      <div class="category" data-category="mobile">
+        <button class="category-head" aria-expanded="false">5. Mobile application problems <span class="chevron">⌄</span></button>
+        <div class="category-content">
+          <article class="problem"><h4>Unable to log in.</h4><p>What to do:</p><ul><li>Check your username and password.</li><li>Make sure your internet connection is stable.</li><li>Use the application's password recovery option if you cannot access your account.</li></ul></article>
+          <article class="problem"><h4>Application will not open.</h4><p>What to do:</p><ul><li>Check your internet connection.</li><li>Close and reopen the application.</li><li>Check the official app store for available updates.</li></ul></article>
+          <article class="problem"><h4>Cart suddenly becomes empty.</h4><p>What to do:</p><ul><li>Check your order history to determine whether the order was submitted.</li><li>If no order was placed, select your items again.</li><li>Review your cart before proceeding to checkout.</li></ul></article>
+          <article class="problem"><h4>Application displays outdated menu information.</h4><p>What to do:</p><ul><li>Refresh the menu page.</li><li>Check whether the application has an available update.</li><li>Contact restaurant staff to confirm current food availability and prices.</li></ul></article>
+          <article class="problem"><h4>Application keeps disconnecting.</h4><p>What to do:</p><ul><li>Switch to a more stable Wi-Fi or mobile data connection.</li><li>Reopen the application once the connection is restored.</li><li>Check your order history before attempting to submit another order.</li></ul></article>
+        </div>
+      </div>
+    </div>
+    <p id="noResults" class="note" hidden>No matching problems found. Try another keyword or select “All categories.”</p>
+  </section>
+
+  <section class="section" id="feedback">
+    <h2>We value your feedback!</h2>
+    <p class="section-intro">Your experience matters to us! Share your comments, suggestions, and recommendations to help improve our Smart Digital Services website and make digital ordering easier, faster, and more convenient for everyone.</p>
+    <form id="feedbackForm" class="feedback">
+      <input type="text" id="visitorName" placeholder="Your name (optional)">
+      <select id="rating" required><option value="">How was your experience?</option><option>Very helpful</option><option>Helpful</option><option>Needs improvement</option></select>
+      <textarea id="comments" placeholder="Write your comments or suggestions..." required></textarea>
+      <button class="btn" type="submit">Send feedback</button>
+    </form>
+    <div class="status" id="successMessage" role="status">Thank you for your feedback! Your response has been recorded on this page.</div>
+    <p class="note">Thank you for taking the time to share your feedback. Your input is highly appreciated!</p>
+  </section>
+</main>
+<footer>Smart Digital Services · Order smarter, live better.</footer>
+<script>
+const categories = [...document.querySelectorAll('.category')];
+categories.forEach(category => {
+  const button = category.querySelector('.category-head');
+  button.addEventListener('click', () => {
+    const isOpen = category.classList.toggle('open');
+    button.setAttribute('aria-expanded', String(isOpen));
+  });
+});
+const searchBox = document.getElementById('searchBox');
+const categoryFilter = document.getElementById('categoryFilter');
+const noResults = document.getElementById('noResults');
+function filterProblems(){
+  const term = searchBox.value.trim().toLowerCase();
+  const selected = categoryFilter.value;
+  let visibleCount = 0;
+  categories.forEach(category => {
+    const categoryMatches = selected === 'all' || category.dataset.category === selected;
+    let matchesInCategory = 0;
+    category.querySelectorAll('.problem').forEach(problem => {
+      const matches = categoryMatches && problem.innerText.toLowerCase().includes(term);
+      problem.hidden = !matches;
+      if(matches) matchesInCategory++;
+    });
+    category.hidden = matchesInCategory === 0;
+    if(matchesInCategory){visibleCount += matchesInCategory; category.classList.add('open');}
+    else category.classList.remove('open');
+  });
+  noResults.hidden = visibleCount !== 0;
+}
+searchBox.addEventListener('input', filterProblems);
+categoryFilter.addEventListener('change', filterProblems);
+document.getElementById('feedbackForm').addEventListener('submit', event => {
+  event.preventDefault();
+  document.getElementById('successMessage').classList.add('show');
+  event.target.reset();
+});
+const navLinks = document.querySelectorAll('.navlinks a');
+navLinks.forEach(link => link.addEventListener('click', () => {
+  navLinks.forEach(item => item.classList.remove('active'));
+  link.classList.add('active');
+}));
+</script>
+</body>
+</html>
